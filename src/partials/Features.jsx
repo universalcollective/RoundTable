@@ -35,7 +35,7 @@ function Features() {
           </div>
         </div>
         <div id="features-section" className="features-content">
-          <h2>Here's some content to show that it's separate from the video background</h2>
+          <h2> </h2>
         </div>
       </section>
     </div>
