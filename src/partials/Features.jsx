@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import Transition from "../utils/Transition";
 import discover from "../images/discover.gif"
-import collab from "../images/collab.png"
-import FeaturesBg from "../images/features-bg.png";
-import FeaturesElement from "../images/features-element.png";
+import collab from "../images/collab.gif"
+import elevate from "../images/elevate.gif";
 import { useNightMode } from "../utils/NightModeContext";
 
 function Features() {
@@ -134,7 +133,7 @@ function Features() {
                     <div className="font-bold leading-snug tracking-tight mb-1 text-custom-100">
                       Discover
                     </div>
-                    <div className="text-gray-600">
+                    <div className="text-gray-600 text-md">
                     Explore a diverse selection of creative content from artists, musicians, and visionaries, 
                     curated monthly for RoundTable members.
                     </div>
@@ -174,7 +173,7 @@ function Features() {
                       <div className="font-bold leading-snug tracking-tight mb-1 text-custom-100 ">
                         Collaborate
                       </div>
-                      <div className="text-gray-600">
+                      <div className="text-gray-600 text-md">
                       Join forces with fellow creatives, share ideas, and embark on collaborative projects within the RoundTable community.
                       </div>
                     </div>
@@ -286,12 +285,12 @@ function Features() {
                   leaveStart="opacity-100 translate-y-0"
                   leaveEnd="opacity-0 -translate-y-16"
                 >
-                  <div className="relative flex items-center justify-center">
+                  <div className="relative inline-flex flex-col">
                     <img
                       className="md:max-w-none mx-auto rounded"
                       src={collab}
                       width="500"
-                      height="462"
+                      height="562"
                       alt="Collaborate"
                     />
                     
@@ -312,18 +311,10 @@ function Features() {
                   <div className="relative inline-flex flex-col">
                     <img
                       className="md:max-w-none mx-auto rounded"
-                      src={FeaturesBg}
+                      src={elevate}
                       width="500"
-                      height="462"
-                      alt="Features bg"
-                    />
-                    <img
-                      className="md:max-w-none absolute w-full left-0 transform animate-float"
-                      src={FeaturesElement}
-                      width="500"
-                      height="44"
-                      alt="Element"
-                      style={{ top: "30%" }}
+                      height="562"
+                      alt="Elevate"
                     />
                   </div>
                 </Transition>
