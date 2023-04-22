@@ -35,7 +35,7 @@ function SignIn() {
             <div className="pt-24 pb-12 md:pt-30 md:pb-20">
               {/* Page header */}
               <div className= {`max-w-3xl mx-auto text-center pb-10 md:pb-10 ${isNightMode ? 'bg-slate-800 text-gray-100' : 'bg-gray-100 text-gray-700'}`}>
-                <h1 className="h1">
+                <h1 className={`h1 ${isNightMode ? 'bg-slate-800 text-gray-100' : 'bg-gray-100 text-gray-700'}`}>
                   Log into Round Table
                 </h1>
               </div>
