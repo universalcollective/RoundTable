@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import musicFile from "../images/eym.mp3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPause, faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.5);
+  const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef();
 
   useEffect(() => {
@@ -22,11 +23,22 @@ const MusicPlayer = () => {
     setIsPlaying(!isPlaying);
   };
 
+  const handleMuteToggle = () => {
+    if (isMuted) {
+      audioRef.current.volume = volume;
+    } else {
+      audioRef.current.volume = 0;
+    }
+    setIsMuted(!isMuted);
+  };
+
   const handleVolumeChange = (event) => {
     const newVolume = event.target.value;
     setVolume(newVolume);
     audioRef.current.volume = newVolume;
+    setIsMuted(newVolume === "0");
   };
+
   return (
     <div
       className={`fixed bottom-4 left-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md`}
@@ -46,8 +58,13 @@ const MusicPlayer = () => {
           </div>
           <div className="text-xs text-gray-500">GRiZ x Ganja White Night</div>
         </div>
-        <button className="ml-4 focus:outline-none">
-          <FontAwesomeIcon icon={faVolumeUp} className="text-xl" />
+        
+        <button className="ml-4 focus:outline-none" onClick={handleMuteToggle}>
+          {isMuted ? (
+            <FontAwesomeIcon icon={faVolumeMute} className="text-xl" />
+          ) : (
+            <FontAwesomeIcon icon={faVolumeUp} className="text-xl" />
+          )}
         </button>
         <input
           className="appearance-none w-12 h-1 ml-2 bg-gray-300 rounded-lg focus:outline-none"
@@ -84,7 +101,7 @@ const MusicPlayer = () => {
             background: #b12f42;
             cursor: pointer;
             margin-top: -2px;
-            margin-left: -8px;
+            margin-left: 0px;
           }
           input[type="range"]::-moz-range-thumb {
             width: 16px;
@@ -93,7 +110,7 @@ const MusicPlayer = () => {
             background: #b12f42;
             cursor: pointer;
             margin-top: -7.5px;
-            margin-left: -8px;
+            margin-left: 0px;
           }
           input[type="range"] {
             margin-top: 3px;
