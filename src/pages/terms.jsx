@@ -4,7 +4,7 @@ import Header from "../partials/Header";
 import Banner from "../partials/Banner";
 import Footer from "../partials/Footer";
 
-export default function Terms() {
+function Terms() {
   return (
     <>
     <Header />
@@ -114,4 +114,5 @@ export default function Terms() {
     <Banner />
     </>
   )
-}
+};
+export default Terms;
