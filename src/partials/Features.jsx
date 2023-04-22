@@ -365,14 +365,7 @@ function Features() {
           />
         </div>
         <div id="features-section" className="features-content">
-          <h2>Our Features</h2>
-          <ul>
-            <li>Feature 1</li>
-            <li>Feature 2</li>
-            <li>Feature 3</li>
-            <li>Feature 4</li>
-            <li>Feature 5</li>
-          </ul>
+          <h2>Testing video as a fixed element</h2>
         </div>
       </section>
     </div>
