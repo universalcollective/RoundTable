@@ -15,7 +15,7 @@ import SignUp from './pages/SignUp';
 import ResetPassword from './pages/Reset-Password';
 import NotFound from './pages/CatchAll'; // import the 404 page component
 import Terms from './pages/terms';
-import PrivacyPolicy from './pages/Privacy-Policy';
+import PrivacyPolicy from './pages/privacy-policy';
 import MusicPlayer from './utils/MusicPlayer';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
