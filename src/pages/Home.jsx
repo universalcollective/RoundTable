@@ -8,26 +8,20 @@ import Newsletter from '../partials/Newsletter';
 import Footer from '../partials/Footer';
 import Banner from '../partials/Banner';
 import { useNightMode, NightModeProvider } from '../utils/NightModeContext';
-import { MouseParallax, ScrollParallax } from "react-just-parallax";
-import { useInView } from 'react-intersection-observer';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import LocomotiveScroll from 'locomotive-scroll';
+import 'locomotive-scroll/dist/locomotive-scroll.min.css';
 
 function Home() {
-  const [heroRef, heroInView] = useInView({ threshold: 0.5 });
-  const [featuresRef, featuresInView] = useInView({ threshold: 0.5 });
-  const [featuresBlocksRef, featuresBlocksInView] = useInView({ threshold: 0.5 });
-  const [testimonialsRef, testimonialsInView] = useInView({ threshold: 0.5 });
-  const [newsletterRef, newsletterInView] = useInView({ threshold: 0.5 });
+  const heroRef = useRef(null);
+const featuresRef = useRef(null);
+const featuresBlocksRef = useRef(null);
+const testimonialsRef = useRef(null);
+const newsletterRef = useRef(null);
   const { isNightMode, setIsNightMode } = useNightMode();
 
   const [activeSection, setActiveSection] = useState(0);
   const [direction, setDirection] = useState('down');
-
-  const handleScroll = (e) => {
-    const newIndex = e.target.scrollTop > activeSection ? activeSection + 1 : activeSection - 1;
-    setDirection(e.target.scrollTop > activeSection ? 'down' : 'up');
-    setActiveSection(newIndex);
-  };
 
   const sections = [
     { id: 0, name: 'hero', ref: heroRef, component: <HeroHome isNightMode={isNightMode} /> },
@@ -37,10 +31,37 @@ function Home() {
     { id: 4, name: 'newsletter', ref: newsletterRef, component: <Newsletter /> },
   ];
 
+  useEffect(() => {
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector('.custom-scrollbar'),
+      smooth: true,
+    });
+  
+    const handleLocomotiveScroll = (e) => {
+      sections.forEach((section, index) => {
+        const rect = section.ref.current.getBoundingClientRect();
+        const inView = rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.5;
+  
+        if (inView) {
+          setActiveSection(index);
+        }
+      });
+    };
+  
+    scroll.on('scroll', handleLocomotiveScroll);
+  
+    return () => {
+      if (scroll) {
+        scroll.off('scroll', handleLocomotiveScroll);
+        scroll.destroy();
+      }
+    };
+  }, []);
+
   return (
     <NightModeProvider value={{ isNightMode, setIsNightMode }}>
       <div className={`flex flex-col min-h-screen overflow-hidden ${isNightMode ? 'bg-slate-800 text-gray-100' : 'bg-gray-100 text-gray-700'}`}>
-        <div className="custom-scrollbar" onScroll={handleScroll}>
+        <div className="custom-scrollbar" data-scroll>
           <Header />
           <main className="flex-grow">
             <TransitionGroup component={null}>

@@ -4,7 +4,6 @@ import logo from '../images/logo-red.png';
 import { Icon } from '@iconify/react';
 import { useNightMode } from '../utils/NightModeContext';
 
-
 function Header() {
   const [top, setTop] = useState(true);
   const location = useLocation();
@@ -23,6 +22,7 @@ function Header() {
       className={`fixed w-full z-30 md:bg-opacity-70 transition duration-300 ease-in-out ${
         !top && "backdrop-blur-sm shadow-lg"
       } ${isNightMode ? "bg-slate-800 text-gray-100" : ""}`}
+      style={{ position: "fixed", top: 0, left: 0, right: 0 }}
     >
       
       <div className="max-w-6xl mx-auto px-5 sm:px-6">

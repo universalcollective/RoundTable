@@ -1,7 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import musicFile from "../images/eym.mp3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause, faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlay,
+  faPause,
+  faVolumeUp,
+  faVolumeMute,
+} from "@fortawesome/free-solid-svg-icons";
 
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -12,7 +17,17 @@ const MusicPlayer = () => {
   useEffect(() => {
     audioRef.current.play();
     setIsPlaying(true);
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
   }, []);
+
+  const handleBeforeUnload = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    }
+  };
 
   const handlePlayPause = () => {
     if (isPlaying) {
@@ -44,7 +59,7 @@ const MusicPlayer = () => {
       className={`fixed bottom-4 left-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md`}
     >
       <div className={`flex items-center`}>
-        <audio ref={audioRef} src={musicFile} />
+        <audio ref={audioRef} src={musicFile} autoPlay={true} />
         <button className="focus:outline-none" onClick={handlePlayPause}>
           {isPlaying ? (
             <FontAwesomeIcon icon={faPause} className="text-xl" />
@@ -58,7 +73,7 @@ const MusicPlayer = () => {
           </div>
           <div className="text-xs text-gray-500">GRiZ x Ganja White Night</div>
         </div>
-        
+
         <button className="ml-4 focus:outline-none" onClick={handleMuteToggle}>
           {isMuted ? (
             <FontAwesomeIcon icon={faVolumeMute} className="text-xl" />
@@ -91,32 +106,32 @@ const MusicPlayer = () => {
             width: "75px", // increase the width of the slider track
           }}
         />
-        <style jsx>{`
-          input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 15px;
-            height: 16px;
-            border-radius: 50%;
-            background: #b12f42;
-            cursor: pointer;
-            margin-top: -2px;
-            margin-left: 0px;
-          }
-          input[type="range"]::-moz-range-thumb {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #b12f42;
-            cursor: pointer;
-            margin-top: -7.5px;
-            margin-left: 0px;
-          }
-          input[type="range"] {
-            margin-top: 3px;
-          }
-        `}</style>
       </div>
+      <style jsx>{`
+        input[type="range"]::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 15px;
+          height: 16px;
+          border-radius: 50%;
+          background: #b12f42;
+          cursor: pointer;
+          margin-top: -2px;
+          margin-left: 0px;
+        }
+        input[type="range"]::-moz-range-thumb {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background: #b12f42;
+          cursor: pointer;
+          margin-top: -7.5px;
+          margin-left: 0px;
+        }
+        input[type="range"] {
+          margin-top: 3px;
+        }
+      `}</style>
     </div>
   );
 };
