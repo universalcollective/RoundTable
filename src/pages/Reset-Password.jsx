@@ -20,8 +20,8 @@ function ResetPassword() {
             <div className="pt-32 pb-12 md:pt-40 md:pb-20">
 
               {/* Page header */}
-              <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-                <h1 className="h1 mb-4">Let’s get things sorted out</h1>
+              <div className={`max-w-3xl mx-auto text-center pb-12 md:pb-20 ${isNightMode ? 'bg-slate-800 text-gray-100' : 'bg-gray-100 text-gray-700'}`}>
+                <h1 className={`h1 mb-4 ${isNightMode ? 'bg-slate-800 text-gray-100' : 'bg-gray-100 text-gray-700'}`}>Let’s get things sorted out</h1>
                 <p className="text-xl ">Enter the email address you used when you signed up for your account, and we’ll email you a link to reset your password.</p>
               </div>
 
