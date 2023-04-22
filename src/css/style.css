@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=fallback');
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+/* Additional styles */
+@import 'additional-styles/utility-patterns.css';
+@import 'additional-styles/range-slider.css';
+@import 'additional-styles/toggle-switch.css';
+@import 'additional-styles/theme.css';
+
+@import 'tailwindcss/utilities';
+
+/* Additional Tailwind directives: https://tailwindcss.com/docs/functions-and-directives/#responsive */
+@layer utilities {
+    .rtl {
+        direction: rtl;
+    }
+}
+
+/* See Alpine.js: https://github.com/alpinejs/alpine#x-cloak */
+[x-cloak=""] {
+    display: none;
+}
+
+
+
+
+/* Logo in Header */
+.logo {
+    transition: transform 0.5s ease;
+    /* border-radius: 50%; */
+    /* border: 1px solid black;
+    padding: 2px;  */
+    /* transform: scaleX(-1); */
+    transform-style: preserve-3d;
+    z-index: 999
+  }
+  
+  .logo:hover {
+    animation: flip-perspective 1s linear infinite;
+  }
+  
+  @keyframes flip {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(-360deg);
+    }
+  }
+  
+  /* Add perspective to the animation */
+  @keyframes flip-perspective {
+    0% {
+      transform: perspective(400px) rotateY(0deg);
+    }
+    50% {
+      transform: perspective(400px) rotateY(180deg);
+    }
+    100% {
+      transform: perspective(400px) rotateY(360deg);
+    }
+  }
+  
+
+  /* Scroll Bar */
+  html {
+  scrollbar-width: thin;
+  scrollbar-color: #ccc #f5f5f5;
+  overflow-y: scroll;
+}
+
+  /* Style the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+/* Style the scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 20px;
+  border: 5px solid #f5f5f5;
+}
+
+/* Style the scrollbar handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+/* Style the scrollbar corner */
+::-webkit-scrollbar-corner {
+  background-color: #f5f5f5;
+}
+
+
+/* Red Color */
+.text-custom-color {
+  color: #B12F42;
+}
+
+a:hover {
+  color: #B12F42;
+}
+
+.hover\:text-custom-100:hover {
+  color: #B12F42; /* replace with your desired color */
+}
+/* Scrolling */
+
+/* Show the <p> element that corresponds to the clicked anchor link */
+.section-paragraph {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.section-paragraph.animate {
+  opacity: 1;
+}
+
+
+/* Night Mode */
+/* slate-800 
+    color: rgb(30 41 59);
+    hex: #1E313B */
+
+    .hero-header {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    .hero-header.visible {
+      opacity: 1;
+    }
+
+    
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .fade-in.fade-in-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 500ms, transform 500ms;
+    }
+
+
+    /* Parallax Homepage */
+    .panel-container {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .panel {
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      border-radius: 5px;
+      margin: 20px;
+      padding: 20px;
+      width: 80%;
+      max-width: 800px;
+    }
+    
+    
