@@ -19,7 +19,7 @@ function Header() {
 
   return (
     <header
-    className={`sticky top-0 left-0 right-0 z-30 md:bg-opacity-70 transition duration-300 ease-in-out ${!top && "backdrop-blur-sm shadow-lg"} ${isNightMode ? "bg-slate-800 text-gray-100" : ""}`}
+    className={`sticky top-0 left-0 right-0 z-30 transition duration-300 ease-in-out ${!top && "backdrop-blur-sm shadow-lg"} ${isNightMode ? "bg-slate-800 text-gray-100" : ""}`}
     >
       
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
