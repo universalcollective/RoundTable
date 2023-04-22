@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5" />
+
+    <title id="pageTitle"></title>
+ 
+  </head>
+  <body class="font-inter antialiased bg-gray-100 text-gray-900 tracking-tight">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+        if (localStorage.getItem('sidebar-expanded') == 'true') {
+            document.querySelector('body').classList.add('sidebar-expanded');
+        } else {
+            document.querySelector('body').classList.remove('sidebar-expanded');
+        }
+    </script>   
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    
+    <script>
+        // Get the page title from the current URL
+        const url = window.location.href;
+        let pageTitle;
+        if (url.endsWith('/')) {
+            pageTitle = 'Home | Round Table'; // default title for home page
+        } else if (url.endsWith('/Privacy')) {
+            pageTitle = 'Privacy Policy | Round Table';
+        } else if (url.endsWith('/terms')) {
+            pageTitle = 'T&C | Round Table';
+        } else if (url.endsWith('/signin')) {
+            pageTitle = 'Sign In | Round Table';
+        } else if (url.endsWith('/reset-password')) {
+            pageTitle = 'Reset Password | Round Table';
+        } else if (url.endsWith('/privacy-policy')) {
+            pageTitle = 'Privacy Policy | Round Table';
+        } else if (url.endsWith('/terms')) {
+            pageTitle = 'Terms & Conditions | Round Table';
+        } else {
+            pageTitle = '404 | Round Table';
+        }
+        // Set the page title dynamically
+        document.getElementById('pageTitle').innerHTML = pageTitle;
+    </script>
+    
+  </body>
+</html>
