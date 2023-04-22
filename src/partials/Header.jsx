@@ -27,16 +27,20 @@ function Header() {
       
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <div className="flex-shrink-0 mr-4">
-            <Link to="/" className="block" aria-label="Round Table">
-              <img
-                src={logo}
-                alt="Round Table"
-                className="w-10 h-8 logo"
-                style={{ margin: "5px" }}
-              />
-            </Link>
-          </div>
+        <div className="flex-shrink-0 mr-4">
+  <Link to="/" className="block" aria-label="Round Table">
+    <div
+      className="w-16 h-16 flex items-center justify-center rounded-full logo" // Increase size and add hover effect
+    >
+      <img
+        src={logo}
+        alt="Round Table"
+        className="w-10 h-8"
+        style={{ margin: "5px" }}
+      />
+    </div>
+  </Link>
+</div>
 
           <nav className="flex flex-grow">
             
