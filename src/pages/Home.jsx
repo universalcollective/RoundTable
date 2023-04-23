@@ -70,7 +70,7 @@ function Home() {
         }
       });
 
-      if (window.pageYOffset > 200) {
+      if (window.pageYOffset > 100) {
         setShowScrollToTopButton(true);
       } else {
         setShowScrollToTopButton(false);
@@ -98,7 +98,7 @@ function Home() {
       >
         <Header />
         <Banner />
-        <div className="custom-scrollbar" data-scroll>
+        <div className="custom-scrollbar">
           
           <main className="flex-grow">
             <TransitionGroup component={null}>
@@ -122,13 +122,15 @@ function Home() {
                   </section>
                 </CSSTransition>
               ))}
+             
             </TransitionGroup>
             
           </main>
-        
           <Footer />
         </div>
+
       </div>
+      
     </NightModeProvider>
   );
 

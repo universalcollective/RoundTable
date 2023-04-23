@@ -56,7 +56,7 @@ const MusicPlayer = () => {
 
   return (
     <div
-      className={`fixed bottom-4 left-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md`}
+      className={`fixed bottom-4 right-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md`}
     >
       <div className={`flex items-center`}>
         <audio ref={audioRef} src={musicFile} autoPlay={true} />

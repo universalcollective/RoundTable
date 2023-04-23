@@ -329,7 +329,6 @@
 // }
 
 // export default Features;
-
 import { useEffect, useRef } from "react";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.min.css";

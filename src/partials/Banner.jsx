@@ -17,7 +17,7 @@ function Banner() {
     <>
       {bannerOpen && (
         <div
-          className={`fixed bottom-0 right-0 w-full md:bottom-8 md:right-12 md:w-auto z-50 ${
+          className={`fixed bottom-0 left-0 w-full md:bottom-8 md:left-12 md:w-auto z-50 ${
             isNightMode
               ? "bg-gray-100 text-gray-700"
               : "bg-slate-800 text-gray-100"

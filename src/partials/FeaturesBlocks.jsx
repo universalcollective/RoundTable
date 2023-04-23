@@ -1,8 +1,6 @@
 import React from "react";
 import { useNightMode } from '../utils/NightModeContext';
 
-
-
 function FeaturesBlocks() {
   const { isNightMode } = useNightMode();
 
